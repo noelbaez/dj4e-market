@@ -1,0 +1,27 @@
+from django.shortcuts import render
+from mkt.models import Ad
+from mkt.owner import OwnerListView, OwnerDetailView, OwnerCreateView, OwnerUpdateView, OwnerDeleteView
+from django import forms
+
+
+# Create your views here.
+class AdListView(OwnerListView):
+    model = Ad
+
+
+class AdDetailView(OwnerDetailView):
+    model = Ad
+
+
+class AdCreateView(OwnerCreateView):
+    model = Ad
+    fields = ["title", "price", "text"]
+
+
+class AdUpdateView(OwnerUpdateView):
+    model = Ad
+    fields = ["title", "price", "text"]
+
+
+class AdDeleteView(OwnerDeleteView):
+    model = Ad
