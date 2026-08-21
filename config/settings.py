@@ -18,9 +18,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
-APP_NAME = "Noel Marketplace"   # Change
+APP_NAME = "Noel Marketplace"  # Change
 
-DJ4E_CODE = 'ddef97e91228d296154a55202be5de7c'
+DJ4E_CODE = "ddef97e91228d296154a55202be5de7c"
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = "django-insecure-yb3=cy&k285b#=!h42%bf+g*07v4lrr+l)fj+_tf1e348fpnkj"
@@ -28,7 +28,7 @@ SECRET_KEY = "django-insecure-yb3=cy&k285b#=!h42%bf+g*07v4lrr+l)fj+_tf1e348fpnkj
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [ '*' ]
+ALLOWED_HOSTS = ["*"]
 
 CSRF_TRUSTED_ORIGINS = [
     "https://*.pythonanywhere.com",
@@ -44,17 +44,17 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-
     # Additions (from requirments.txt)
-    'django.contrib.humanize',
-    'django_extensions',
-    'crispy_forms',
-    'crispy_bootstrap5',
-    'rest_framework',
-    'social_django',
-    'taggit',
-    'home.apps.HomeConfig',
-    'mkt',
+    "django.contrib.humanize",
+    "django_extensions",
+    "crispy_forms",
+    "crispy_bootstrap5",
+    "rest_framework",
+    "social_django",
+    "taggit",
+    "home.apps.HomeConfig",
+    "mkt",
+    "library",
 ]
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
@@ -70,9 +70,8 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-
     # Additions
-    'social_django.middleware.SocialAuthExceptionMiddleware',
+    "social_django.middleware.SocialAuthExceptionMiddleware",
 ]
 
 ROOT_URLCONF = "config.urls"
@@ -87,9 +86,9 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
-                'home.context_processors.settings',      # Add
-                'social_django.context_processors.backends',  # Add
-                'social_django.context_processors.login_redirect', # Add
+                "home.context_processors.settings",  # Add
+                "social_django.context_processors.backends",  # Add
+                "social_django.context_processors.login_redirect",  # Add
             ],
         },
     },
@@ -139,6 +138,9 @@ USE_I18N = True
 
 USE_TZ = True
 
+# settings.py
+USE_THOUSAND_SEPARATOR = True
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
@@ -148,20 +150,20 @@ STATIC_URL = "static/"
 # When you want to use social login, please see dj4e-samples/github_settings-dist.py
 try:
     from . import github_settings
+
     SOCIAL_AUTH_GITHUB_KEY = github_settings.SOCIAL_AUTH_GITHUB_KEY
     SOCIAL_AUTH_GITHUB_SECRET = github_settings.SOCIAL_AUTH_GITHUB_SECRET
-    print('Loaded SOCIAL login variables from github_settings.py')
+    print("Loaded SOCIAL login variables from github_settings.py")
 except:
-    print('When you want to use social login, please see dj4e-samples/github_settings-dist.py')
+    print("When you want to use social login, please see dj4e-samples/github_settings-dist.py")
 
 # https://python-social-auth.readthedocs.io/en/latest/configuration/django.html#authentication-backends
 # https://simpleisbetterthancomplex.com/tutorial/2016/10/24/how-to-add-social-login-to-django.html
 AUTHENTICATION_BACKENDS = (
-    'social_core.backends.github.GithubOAuth2',
+    "social_core.backends.github.GithubOAuth2",
     # 'social_core.backends.twitter.TwitterOAuth',
     # 'social_core.backends.facebook.FacebookOAuth2',
-
-    'django.contrib.auth.backends.ModelBackend',
+    "django.contrib.auth.backends.ModelBackend",
 )
 
 # Default primary key field type

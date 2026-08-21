@@ -13,8 +13,23 @@ class Ad(models.Model):
 
     # Picture
     picture = models.BinaryField(null=True, blank=True, editable=True)
-    content_type = models.CharField(max_length=256, null=True, blank=True, help_text="The MIMEType of the file")    
+    content_type = models.CharField(max_length=256, null=True, blank=True, help_text="The MIMEType of the file")
 
     # Shows up in the admin list
     def __str__(self):
         return self.title
+
+
+# class Book(models.Model):
+#     title = models.CharField(max_length=200)
+#     authors = models.ManyToManyField("Author", through="Authored")
+
+
+# class Author(models.Model):
+#     name = models.CharField(max_length=200)
+#     books = models.ManyToManyField("Book", through="Authored")
+
+
+# class Authored(models.Model):
+#     book = models.ForeignKey(Book, on_delete=models.CASCADE)
+#     author = models.ForeignKey(Author, on_delete=models.CASCADE)
