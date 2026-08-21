@@ -26,6 +26,7 @@ class AdCreateView(LoginRequiredMixin, View):
     template_name = "mkt/ad_form.html"
     success_url = reverse_lazy("mkt:all")
 
+
     def get(self, request, pk=None):
         form = CreateForm()
         ctx = {"form": form}
